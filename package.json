@@ -1,0 +1,32 @@
+{
+  "name": "simon-game",
+  "version": "1.0.0",
+  "description": "An API to use for building the Simon memory game.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --recursive || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoemakerdr/simon-api.git"
+  },
+  "keywords": [
+    "simon",
+    "game",
+    "freecodecamp",
+    "simon game"
+  ],
+  "author": "Derek Shoemaker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shoemakerdr/simon-api/issues"
+  },
+  "homepage": "https://github.com/shoemakerdr/simon-api#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0"
+  }
+}
