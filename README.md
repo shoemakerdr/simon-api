@@ -13,26 +13,26 @@ simon.newSeries()
 // initialize a new random series
 simon.getFullSeries() // get the full series up front
 // [1,4,3,3,2,4,1,1,2,3,4,4,3,2,1,4,2,3,2,3]
-simon.getNext() // get the next part of the series (1st part if not been called)
+simon.getCurrent() // get the current series (1st part if next() not been called)
 // [1]
-simon.check(1) // check each value one at a time in the series
+simon.checkUserSeries([1]) // check the entire current series against user input
 // true
-simon.getNext()
+simon.next() // add the next element of the series to the current series
+simon.getCurrent()
 // [1,4]
-simon.check(1)
+simon.checkUserSeries([1, 4])
 // true
-simon.check(4)
-// true
-simon.getNext()
+simon.getCurrent()
 // [1,4,3]
-simon.check(1)
+// You can also check each sequential user guess individually
+simon.checkUserGuess(1)
 // true
-simon.check(4)
+simon.checkUserGuess(4)
 // true
-simon.check(2)
-// false
-simon.getCurrent();
-// [1,4,3]
+simon.checkUserGuess(3)
+// true
+//
+
 simon.check(1)
 // true
 simon.check(4)
