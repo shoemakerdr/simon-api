@@ -14,4 +14,37 @@ describe('Simon object', function () {
 			assert.notDeepEqual(simon.getFullSeries(), firstSeries)
 		})
 	})
+	describe('next method', function () {
+		describe('after initializing a new series', function () {
+			simon.newSeries()
+			it('will add the second element of the series to the current series after the first call', function () {
+				simon.next()
+				const firstTwoSeries = [simon.series[0], simon.series[1]]
+				assert.deepEqual(simon.getCurrent(), firstTwoSeries)
+			})
+			it('will add the second element of the series to the current series after the second call', function () {
+				simon.next()
+				const firstThreeSeries = [simon.series[0], simon.series[1], simon.series[2]]
+				assert.deepEqual(simon.getCurrent(), firstThreeSeries)
+			})
+		})
+	})
+	describe('checkUserSeries method', function () {
+		simon.newSeries()
+		describe('when given an array that matches the current series', function () {
+			it('will return true', function () {
+				const currentSeries = simon.getCurrent()
+				assert.isTrue(simon.checkUserSeries(currentSeries))
+			})
+		})
+		describe('when given an array that does NOT match the current series', function () {
+			it('will return false', function () {
+				const falseSeries = simon.getCurrent().map(x => x)
+				falseSeries[0] = falseSeries[0] < 4
+					? falseSeries[0] + 1
+					: falseSeries[0] - 1
+				assert.isFalse(simon.checkUserSeries(falseSeries))
+			})
+		})
+	})
 })
