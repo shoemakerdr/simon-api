@@ -22,6 +22,7 @@ simon.getCurrent()
 // [1,4]
 simon.checkUserSeries([1, 4])
 // true
+simon.next()
 simon.getCurrent()
 // [1,4,3]
 // You can also check each sequential user guess individually
@@ -31,14 +32,5 @@ simon.checkUserGuess(4)
 // true
 simon.checkUserGuess(3)
 // true
-//
 
-simon.check(1)
-// true
-simon.check(4)
-// true
-simon.check(4)
-// false
-simon.newSeries();
-// to start a new game
 ```
