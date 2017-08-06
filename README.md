@@ -14,15 +14,11 @@ require or the ES6 import statement.
 ```javascript
 const Simon = require('simon-game');
 ```
-or
-```javascript
-import Simon from 'simon-game';
-```
 
 ## Simon Game
 
 ### Set Up
-When you import or require 'Simon' into your project, it gives you a function,
+When you require 'Simon' into your project, it gives you a function,
 which returns an instance of the Simon game. You can include two optional
 parameters: first is the number of possibilities (it defaults to 4), and the
 length of the initial series (this defaults to 20, per the requirements of the
@@ -147,6 +143,7 @@ please do so [here](https://github.com/shoemakerdr/simon-api/issues).
 
 ## Tests
 (NOTE: requires mocha and chai)
+
     $ npm test
 
 ## License
