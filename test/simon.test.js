@@ -29,12 +29,12 @@ describe('Simon object', function () {
 			})
 		})
 	})
-	describe('checkUserSeries method', function () {
+	describe('checkSeries method', function () {
 		simon.newSeries()
 		describe('when given an array that matches the current series', function () {
 			it('will return true', function () {
 				const currentSeries = simon.getCurrent()
-				assert.isTrue(simon.checkUserSeries(currentSeries))
+				assert.isTrue(simon.checkSeries(currentSeries))
 			})
 		})
 		describe('when given an array that does NOT match the current series', function () {
@@ -43,7 +43,30 @@ describe('Simon object', function () {
 				falseSeries[0] = falseSeries[0] < 4
 					? falseSeries[0] + 1
 					: falseSeries[0] - 1
-				assert.isFalse(simon.checkUserSeries(falseSeries))
+				assert.isFalse(simon.checkSeries(falseSeries))
+			})
+		})
+	})
+	describe('checkGuess method', function () {
+		describe('when given a correct guess', function () {
+			it('will return true', function () {
+				const first = simon.getCurrent()[0]
+				assert.isTrue(simon.checkGuess(first))
+			})
+			it('will not reset the iterator back to the beginning', function () {
+				const nextValue = simon.check.iterAnswers.next().value[1]
+				const firstCurrent = simon.getCurrent()[0]
+				assert.notEqual(firstCurrent, nextValue)
+			})
+		})
+		describe('when given an incorrect guess', function () {
+			it('will return false', function () {
+				assert.isFalse(simon.checkGuess(6))
+			})
+			it('will reset the iterator back to the beginning', function () {
+				const nextValue = simon.check.iterAnswers.next().value[1]
+				const firstCurrent = simon.getCurrent()[0]
+				assert.equal(firstCurrent, nextValue)
 			})
 		})
 	})

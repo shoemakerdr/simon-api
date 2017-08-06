@@ -1,5 +1,7 @@
 'use strict'
 
+const Check = require('./check')
+
 const log = console.log
 
 class Simon {
@@ -9,6 +11,7 @@ class Simon {
 		this.series = []
 		this.count = 1
 		this.current = []
+		this.check;
 	}
 
 	newSeries () {
@@ -20,6 +23,7 @@ class Simon {
 		this.series = series
 		this.count = 1
 		this.current = [this.series[0]]
+		this.check = new Check(this.current)
 		return this
 	}
 
@@ -33,6 +37,7 @@ class Simon {
 			.map((num,i) => i < this.count ? num : undefined)
 			.filter(x => x !== undefined)
 		this.current = current
+		this.check = new Check(this.current)
 		return this
 	}
 
@@ -40,9 +45,16 @@ class Simon {
 		return this.current
 	}
 
-	checkUserSeries (guesses) {
+	checkSeries (guesses) {
 		const current = this.getCurrent()
 		return current.every((num, i) => guesses[i] === num)
+	}
+
+	checkGuess (guess) {
+		const checked = this.check.guess(guess)
+		if (!checked)
+			this.check.reset()
+		return checked
 	}
 }
 
