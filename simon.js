@@ -45,6 +45,10 @@ class Simon {
 		return this.current
 	}
 
+	getCount () {
+		return this.count
+	}
+
 	checkSeries (guesses) {
 		const current = this.getCurrent()
 		return current.every((num, i) => guesses[i] === num)

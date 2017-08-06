@@ -3,5 +3,7 @@
 const Simon = require('./simon')
 
 module.exports = function playSimon (possible, seriesLength) {
-	return new Simon(possible, seriesLength)
+	const simon = new Simon(possible, seriesLength)
+	simon.newSeries()
+	return simon
 }
