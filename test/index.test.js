@@ -1,15 +1,15 @@
-// 'use strict'
-//
-// const assert = require('chai').assert
-// const Simon = require('./simon')
-//
-// describe('Simon object', function () {
-// 	const simon = new Simon()
-// 	describe('newSeries method', function () {
-// 		it('will initialize a new simon series', function () {
-// 			simon.newSeries()
-// 			const firstSeries = simon.getFullSeries()
-// 			simon.newSeries()
-// 		})
-// 	})
-// })
+'use strict'
+
+const assert = require('chai').assert
+const Simon = require('../index')
+
+describe('Simon module', function () {
+	describe('is a function', function () {
+		assert.isFunction(Simon)
+		describe('when called', function () {
+			it('returns an object', function () {
+				assert.isObject(Simon())
+			})
+		})
+	})
+})

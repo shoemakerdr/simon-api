@@ -54,9 +54,9 @@ describe('Simon object', function () {
 				assert.isTrue(simon.checkGuess(first))
 			})
 			it('will not reset the iterator back to the beginning', function () {
-				const nextValue = simon.check.iterAnswers.next().value[1]
-				const firstCurrent = simon.getCurrent()[0]
-				assert.notEqual(firstCurrent, nextValue)
+				const nextValue = simon.check.iterAnswers.next().value
+				const firstCurrent = [0, simon.getCurrent()[0]]
+				assert.notDeepEqual(firstCurrent, nextValue)
 			})
 		})
 		describe('when given an incorrect guess', function () {
@@ -64,9 +64,9 @@ describe('Simon object', function () {
 				assert.isFalse(simon.checkGuess(6))
 			})
 			it('will reset the iterator back to the beginning', function () {
-				const nextValue = simon.check.iterAnswers.next().value[1]
-				const firstCurrent = simon.getCurrent()[0]
-				assert.equal(firstCurrent, nextValue)
+				const nextValue = simon.check.iterAnswers.next().value
+				const firstCurrent = [0, simon.getCurrent()[0]]
+				assert.deepEqual(firstCurrent, nextValue)
 			})
 		})
 	})
