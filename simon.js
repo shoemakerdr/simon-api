@@ -13,14 +13,14 @@ class Simon {
 
 	newSeries () {
 		const series = []
-		let randomPossible
 		for (let i = 0; i < 20; i++) {
-			randomPossible = Math.floor(Math.random() * this.possible) + 1
+			let randomPossible = Math.floor(Math.random() * this.possible) + 1
 			series.push(randomPossible)
 		}
 		this.series = series
 		this.count = 1
 		this.current = [this.series[0]]
+		return this
 	}
 
 	getFullSeries () {
@@ -29,11 +29,11 @@ class Simon {
 
 	next () {
 		this.count++
-		const current = []
-		for (let i = 0; i < this.count; i++) {
-			current.push(this.series[i])
-		}
+		const current = this.series
+			.map((num,i) => i < this.count ? num : undefined)
+			.filter(x => x !== undefined)
 		this.current = current
+		return this
 	}
 
 	getCurrent () {
@@ -42,12 +42,7 @@ class Simon {
 
 	checkUserSeries (guesses) {
 		const current = this.getCurrent()
-		const len = this.series.length
-		for (let i = 0; i < len; i++) {
-			if (guesses[i] !== current[i])
-				return false
-		}
-		return true
+		return current.every((num, i) => guesses[i] === num)
 	}
 }
 
