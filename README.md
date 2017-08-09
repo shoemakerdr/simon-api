@@ -77,6 +77,20 @@ simon.getCurrent()
 simon.checkGuess(3)
 // true
 ```
+
+You can get the number of guesses made in a try by calling the getGuesses method. It
+can be used to check against the series count:
+```javascript
+simon.getGuesses()
+// 0
+simon.getCurrent()
+// [3]
+simon.checkGuess(3)
+// true
+simon.getGuesses()
+// 1
+```
+
 You then call the next method, which updates both the count and the current
 series:
 ```javascript
