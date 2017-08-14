@@ -12,7 +12,10 @@ It features a simple API that you can easily plug into your application.
 You can include this Tic Tac Toe module into your project by using either
 require or the ES6 import statement.
 ```javascript
-const Simon = require('simon-game');
+const simonGame = require('simon-game');
+```
+```javascript
+import simonGame from 'simon-game';
 ```
 
 ## Simon Game
@@ -27,13 +30,13 @@ Free Code Camp project).
 Example:
 ```javascript
 // If you want to go with the default configuration
-const simon = Simon();
+const simon = simonGame();
 ```
 or:
 ```javascript
 // If you want to make a more complex game of Simon with 8 possible moves and
 // and a series length of 40
-const simon = Simon(8, 40);
+const simon = simonGame(8, 40);
 ```
 
 ### Using the game
