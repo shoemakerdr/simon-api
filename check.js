@@ -7,8 +7,10 @@ class Check {
         this.guesses = 0
 	}
 	guess (possible) {
+        const answer = this.iterAnswers.next().value
+        if (answer === undefined) return
         this.guesses++
-		return possible === this.iterAnswers.next().value[1]
+		return possible === answer[1]
 	}
 
 	reset () {
